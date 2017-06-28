@@ -11,19 +11,19 @@ public class Logica {
 		String[]numeros;
 		double resultado= 0;
 		
-		if (valores.contains( "\\+" )) {
+		if (valores.contains( "+" )) {
 		 
-			numeros= valores.split( "+" );
+			numeros= valores.split( "\\+" );
 			
 			if (numeros.length > 1) {
 				Suma sumar = new Suma();
 				
 				switch (numeros.length) {
 				case 2:
-					resultado = sumar.Suma("+",Ayudante.conversor(numeros));
+					resultado = sumar.Suma("+",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]));
 					break;
 				case 3:
-					resultado = sumar.Suma("+",Ayudante.conversor(numeros));
+					resultado = sumar.Suma("+",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]),Ayudante.conversor(numeros[2]));
 					break;
 				default:
 					resultado =sumar.Suma("+",Ayudante.conversor(numeros));
@@ -31,22 +31,23 @@ public class Logica {
 				}
 			}
 		}
+
 		
 		if(valores.contains("-")){
-			numeros= valores.split( "\\-" );
+			numeros= valores.split( "-" );
 			
 			if (numeros.length > 1) {
 				Resta restar = new Resta();
 				
 				switch (numeros.length) {
 				case 2:
-					resultado = restar.Resta("+",Ayudante.conversor(numeros));
+					resultado = restar.Resta("-",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]));
 					break;
 				case 3:
-					resultado = restar.Resta("+",Ayudante.conversor(numeros));
+					resultado = restar.Resta("-",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]),Ayudante.conversor(numeros[2]));
 					break;
 				default:
-					resultado = restar.Resta("+",Ayudante.conversor(numeros));
+					resultado = restar.Resta("-",Ayudante.conversor(numeros));
 					break;
 				}
 			}
