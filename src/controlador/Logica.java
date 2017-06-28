@@ -1,6 +1,8 @@
 package controlador;
 
 import utils.Ayudante;
+import utils.Division;
+import utils.Multiplicacion;
 import utils.Resta;
 import utils.Suma;
 
@@ -48,6 +50,47 @@ public class Logica {
 					break;
 				default:
 					resultado = restar.Resta("-",Ayudante.conversor(numeros));
+					break;
+				}
+			}
+			
+		}
+		
+		if(valores.contains("*")){
+			numeros= valores.split( "\\*" );
+			
+			if (numeros.length > 1) {
+				Multiplicacion multiplicar = new Multiplicacion();
+				
+				switch (numeros.length) {
+				case 2:
+					resultado = multiplicar.Multiplicacion("*",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]));
+					break;
+				case 3:
+					resultado = multiplicar.Multiplicacion("*",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]),Ayudante.conversor(numeros[2]));
+					break;
+				default:
+					resultado = multiplicar.Multiplicacion("*",Ayudante.conversor(numeros));
+					break;
+				}
+			}
+			
+		}
+		if(valores.contains("/")){
+			numeros= valores.split( "/" );
+			
+			if (numeros.length > 1) {
+				Division dividir = new Division();
+				
+				switch (numeros.length) {
+				case 2:
+					resultado = dividir.Division("/",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]));
+					break;
+				case 3:
+					resultado = dividir.Division("/",Ayudante.conversor(numeros[0]),Ayudante.conversor(numeros[1]),Ayudante.conversor(numeros[2]));
+					break;
+				default:
+					resultado = dividir.Division("/",Ayudante.conversor(numeros));
 					break;
 				}
 			}
