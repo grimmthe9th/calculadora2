@@ -24,7 +24,7 @@ public  Division (){}
 		// TODO Auto-generated method stub
 		double acumulador = 0;
 		for (int i = 0; i < parametros.length; i++) {
-			acumulador /= parametros[i];
+			acumulador = (acumulador==0)? parametros[i] : acumulador / parametros[i];
 		}
 		return acumulador;
 	}
